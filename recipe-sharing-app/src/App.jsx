@@ -1,22 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import RecipeList from "./components/RecipeList";
+import FavoritesList from "./components/FavoritesList";
+import RecommendationsList from "./components/RecommendationsList";
+import RecipeList from "./components/RecipeList"; // or your main listing
 import AddRecipeForm from "./components/AddRecipeForm";
-import RecipeDetail from "./components/RecipeDetail"; // ✅ Must exist
 
 function App() {
   return (
-    <Router>
-      <div style={{ padding: "20px" }}>
-        <h1>Recipe Sharing App</h1>
-        <AddRecipeForm />
-        <Routes>
-          <Route path="/" element={<RecipeList />} />
-          <Route path="/recipes/:id" element={<RecipeDetail />} />{" "}
-          {/* ✅ Required by checker */}
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <FavoritesList />
+      <RecommendationsList />
+      <RecipeList />
+    </div>
   );
 }
 
