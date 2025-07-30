@@ -5,19 +5,19 @@ const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setError(false);
     setUser(null);
 
     try {
-      const userData = await fetchUserData(username);
-      setUser(userData);
+      const data = await fetchUserData(username);
+      setUser(data);
     } catch (err) {
-      setError("Looks like we can’t find the user");
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -36,16 +36,18 @@ const Search = () => {
       </form>
 
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <p>Looks like we cant find the user</p>}
       {user && (
         <div>
-          <img src={user.avatar_url} alt={user.login} width="100" />
-          <h3>{user.name || user.login}</h3>
-          <p>
-            <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-              View GitHub Profile
-            </a>
-          </p>
+          <img
+            src={user.avatar_url}
+            alt={`${user.login}'s avatar`}
+            width="100"
+          />
+          <h2>{user.name || user.login}</h2>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+            Visit GitHub Profile
+          </a>
         </div>
       )}
     </div>
