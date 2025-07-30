@@ -2,9 +2,9 @@ import React from "react";
 
 function App() {
   return (
-    <div style={{ padding: "2rem" }}>
+    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
       <h1>GitHub User Search</h1>
-      {/* We'll add the Search component and user info here later */}
+      <p>Search for GitHub users and view their profile information.</p>
     </div>
   );
 }
