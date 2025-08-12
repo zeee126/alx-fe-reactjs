@@ -2,14 +2,12 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
-    <div className="p-10">
-      <h1 className="text-4xl font-bold text-blue-500">
-        Recipe Sharing Platform
-      </h1>
-      <p className="mt-4 text-gray-600">Tailwind CSS is working! 🎉</p>
+    <div className="min-h-screen bg-gray-100">
+      <HomePage />
     </div>
   );
 }
